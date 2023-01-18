@@ -12,7 +12,7 @@ main:
    leaq -112(%rbp), %rdi
    call init
 
-   movq -112(%rbp), %rdi
+   leaq -112(%rbp), %rdi
    movl $2, %esi
    call sum
 
@@ -48,7 +48,7 @@ sum:
 
    movl $0, %r12d
    for1:
-      cmp -36(%rbp), %r12d
+      cmpl -36(%rbp), %r12d
       jge end_for1
 
       movl $0, %r13d
@@ -56,13 +56,15 @@ sum:
          movslq %r12d, %rax
          imulq $56, %rax
          addq -32(%rbp), %rax
-         cmp %r13d, 48(%rax)
+         cmpl 48(%rax), %r13d
          jge end_for2
 
-         movq %r14, %rdi
+         leaq 8(%rax), %r9
          movslq %r13d, %r8
          imulq $8, %r8
-         addq 8(%rax), %r8
+         addq %r9, %r8
+
+         movq %r14, %rdi
          movq (%r8), %rsi
          call add_sum
 

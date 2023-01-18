@@ -4,7 +4,7 @@
 #include "process.h"
 
 
-long sum(node_t *node, int size)
+long sum(node_t *nodes, int size)
 
 {
 
@@ -14,9 +14,9 @@ long sum(node_t *node, int size)
 
   for (i = 0; i < size; i++) {
 
-    for (j = 0; j < node[i].used; j++)
+    for (j = 0; j < nodes[i].used; j++)
 
-      add_sum(h, node[i].values[j]);
+      add_sum(h, nodes[i].values[j]);
 
   }
 

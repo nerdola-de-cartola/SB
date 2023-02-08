@@ -51,3 +51,15 @@ mywrite:
 
     leave
     ret
+
+.globl myclose
+myclose:
+    pushq %rbp
+    movq %rsp, %rbp
+
+    movl (%rdi), %edi
+    movq $3, %rax
+    syscall
+
+    leave
+    ret

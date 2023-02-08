@@ -44,7 +44,6 @@ ssize_t mywrite(handler_t *h, size_t count)
  return write(h->fd, h->buffer, count);
 
 }
-*/
 
 
 int myclose(handler_t *h)
@@ -54,3 +53,4 @@ int myclose(handler_t *h)
  return close(h->fd);
 
 }
+*/
